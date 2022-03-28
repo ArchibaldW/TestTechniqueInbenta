@@ -6,9 +6,7 @@
     "serve": "vue-cli-service serve",
     "build": "vue-cli-service build",
     "lint": "vue-cli-service lint",
-    "deploy": "node --experimental-modules scripts/gh-pages-deploy.js",
-    "git": "npm run build && git add . && git commit -m build",
-    "postgit": "git push && git subtree push --prefix dist origin gh-pages"
+    "deploy": "node --experimental-modules scripts/gh-pages-deploy.js"
   },
   "dependencies": {
     "axios": "^0.26.1",
