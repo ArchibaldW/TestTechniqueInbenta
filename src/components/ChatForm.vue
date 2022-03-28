@@ -15,7 +15,7 @@ export default {
                 this.$store.dispatch("messageFromUser", this.message);
                 this.$emit("message",this.message)
                 this.writing = true;
-                axios.post("http://localhost:81/test_technique_inbenta/backend/", {'message': this.message}, {withCredentials: true})
+                axios.post("../../backend/index.php", {'message': this.message}, {withCredentials: true})
                     .then(response => {
                         this.response = response.data;
                         this.$store.dispatch("responseFromBot", this.response);
