@@ -11,7 +11,8 @@ module.exports = {
     parser: '@babel/eslint-parser'
   },
   rules: {
+    "vue/comment-directive": 0,
     'no-console': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
-    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off'
+    'no-debugger': process.env.NODE_ENV === 'production' ? 'warn' : 'off',
   }
 }

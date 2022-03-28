@@ -1,28 +1,33 @@
 <template>
-  <div id="app">
-    <img alt="Vue logo" src="./assets/logo.png">
-    <HelloWorld msg="Welcome to Your Vue.js App"/>
-  </div>
+    <div id="app">
+        <div id="chat">
+            <ul id="messages">
+                <li v-for="message in messages" :key="message.id">
+            <b v-if="message.isBot">Yoda :</b><b v-else>Me :</b>{{ message.body }}
+            </li>
+        </ul>
+        <ChatForm/>
+        </div>
+    </div>
 </template>
 
 <script>
-import HelloWorld from './components/HelloWorld.vue'
+import { mapState } from "vuex"
+import ChatForm from "./components/ChatForm.vue"
 
 export default {
-  name: 'App',
-  components: {
-    HelloWorld
-  }
+    name: 'App',
+    computed: {
+        ...mapState(['messages'])
+    },
+    components: {
+		ChatForm
+	},
+    created(){
+        this.$store.dispatch("getConversation");
+    }
 }
 </script>
 
 <style lang="scss">
-#app {
-  font-family: Avenir, Helvetica, Arial, sans-serif;
-  -webkit-font-smoothing: antialiased;
-  -moz-osx-font-smoothing: grayscale;
-  text-align: center;
-  color: #2c3e50;
-  margin-top: 60px;
-}
 </style>
