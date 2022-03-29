@@ -15,7 +15,7 @@ export default {
                 this.$store.dispatch("messageFromUser", this.message);
                 this.$emit("message",this.message)
                 this.writing = true;
-                axios.post("https://sheltered-cove-48959.herokuapp.com/backend/", {'message': this.message}, {withCredentials: true})
+                axios.post("https://test-technique-inbenta-backend.herokuapp.com/", {'message': this.message}, {withCredentials: true})
                     .then(response => {
                         this.response = response.data;
                         this.$store.dispatch("responseFromBot", this.response);
